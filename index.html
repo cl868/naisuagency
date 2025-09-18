@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naisu Agency</title>
+<style>
+    body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center; /* ensure centered text */
+    }
+
+    header img {
+        width: 500px; /* increased size */
+        max-width: 80%; /* responsive for smaller screens */
+        height: auto;
+        cursor: pointer;
+        transition: transform 1s;
+        transform-origin: center;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #tagline {
+    font-size: 1.2rem; /* smaller font size */
+    font-family: 'Cursive', sans-serif; /* cursive font */
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+    .icons {
+        margin-top: 40px;
+        display: none;
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .icons img {
+        width: 80px;
+        height: auto;
+        transition: transform 0.2s;
+    }
+
+    .icons img:hover {
+        transform: scale(1.2);
+    }
+    .social-icon {
+    width: 60px; /* keep smaller size */
+    height: auto;
+    transition: transform 0.2s, filter 0.3s;
+    filter: grayscale(100%) brightness(50%); /* converts to black/grey */
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    filter: grayscale(50%) brightness(80%); /* slight color on hover */
+}
+</style>
 </head>
 <body>
-    <h1>Hello GitHub Pages!</h1>
-    <p>This is my first site 🚀</p>
+
+<header>
+    <img id="logo" src="headerlogo.png" alt="Naisu Agency Logo">
+    <div id="tagline">New Asian Imagination, Shaping Us</div>
+</header>
+
+<div id = "socials" class="icons">
+    <a href="https://www.instagram.com/naisuagency/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+    </a>
+    <a href="https://www.youtube.com/@naisuagency/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+    </a>
+</div>
+
+<script>
+    const logo = document.getElementById('logo');
+    const socials = document.getElementById('socials');
+    const tagline = document.getElementById('tagline');
+
+    logo.addEventListener('click', () => {
+        // Flip logo clockwise 180 degrees
+        logo.style.transform = 'rotateZ(180deg)';
+
+        // After flip animation, show tagline and social icons
+        setTimeout(() => {
+            tagline.style.opacity = 1;
+            socials.style.display = 'flex';
+        }, 1000); // matches transition duration
+    });
+</script>
+
 </body>
 </html>
